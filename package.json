@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@types/node": "^18.7.18",
+    "typescript": "^4.8.3"
+  },
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "rollup": "^2.79.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{less,md,json}": [
+      "prettier --write"
+    ],
+    "src/**/*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix --max-warnings 0"
+    ],
+    "src/**/*.ts?(x)": [
+      "prettier --parser=typescript --write",
+      "eslint --fix --max-warnings 0"
+    ]
+  }
+}
